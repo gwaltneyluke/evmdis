@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"encoding/hex"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -33,7 +32,7 @@ func main() {
 	if err != nil {
 		panic(fmt.Sprintf("Could not read from stdin: %v", err))
 	}
-	bytecode = bytes.TrimSpace(hexdata)
+	bytecode = bytes.TrimSpace(bytecode)
 
 	if disassembly, err := Disassemble(bytecode, *withSwarmHash, *ctorMode); err != nil {
 		panic(fmt.Sprintf("Unable to disassemble: %v", err))
